@@ -1,14 +1,17 @@
 package autom.wowhead;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-public class TestVerificationItem extends AbstractTest {
+public class TestVerificationItem extends AbstractTest{
 	// Web Elements
 	@FindBy(how = How.XPATH, using="//form[@action='/search']//input[@name='q']")
 	private WebElement input_search;
@@ -18,15 +21,12 @@ public class TestVerificationItem extends AbstractTest {
 	
 	@FindBy(how = How.XPATH, using="//span[contains(text(),'Continuer')]") //div[contains(class(),'banner_banner')]//span[contains(text(),'Continuer')]
 	private WebElement bouton_accept_cookie;
+
 	
 	@Test
 	public void test() throws InterruptedException 	{
 		
-		System.setProperty("webdriver.gecko.drive", "C:\\Users\\formation\\Documents\\eclipse-workspace\\drivers\\geckodriver.exe");
-		WebDriver driver ;		
-		driver = new FirefoxDriver();
-		driver.manage().window().maximize();
-		
+
 		// Aller sur le site 'https://fr.wowhead.com/'
 		driver.get("https://fr.wowhead.com/");
 
